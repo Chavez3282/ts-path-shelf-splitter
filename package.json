@@ -1,0 +1,17 @@
+{
+  "name": "ts-path-shelf-splitter",
+  "version": "0.1.0",
+  "description": "Parses path strings into components and reassembles them with separate POSIX and Windows handling",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
