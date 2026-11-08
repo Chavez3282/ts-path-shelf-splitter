@@ -27,3 +27,10 @@ The trade-off is depth. UNC paths (`\\server\share`) are detected and their lead
 ## Edge you will hit
 
 `isWindowsPath` is a heuristic: a path is treated as Windows when it starts with a drive letter (`C:`) or a backslash. A POSIX filename that *contains* a backslash will therefore be misclassified. Backslashes are illegal in Windows filenames and rare enough on POSIX that the heuristic holds for normal input, but it is a heuristic, not a guarantee. When you know the origin, pass `forcePlatform` to `parsePath` or `normalizePath` and bypass the guess entirely.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
